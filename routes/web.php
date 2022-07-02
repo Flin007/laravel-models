@@ -24,7 +24,7 @@ Route::group(['namespace' => 'User'], function () {
 });
 
 //Группа для роутов админ панели
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
     //Группа для основных страниц панели управления
     Route::group(['namespace' => 'Main'], function () {
