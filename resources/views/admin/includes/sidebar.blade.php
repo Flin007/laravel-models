@@ -12,6 +12,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header">Основное меню</li>
             <li class="nav-item">
+                <a href="{{ Route::currentRouteName() === 'admin.users.index' ? '#' : route('admin.users.index') }}"
+                   class="nav-link {{ Route::currentRouteName() === 'admin.users.index' ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Пользователи
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ Route::currentRouteName() === 'admin.girls.index' ? '#' : route('admin.girls.index') }}"
                    class="nav-link {{ Route::currentRouteName() === 'admin.girls.index' ? 'active' : '' }}">
                     <i class="nav-icon fas fa-venus"></i>

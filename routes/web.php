@@ -31,11 +31,23 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'IndexController')->name('admin.main.index');
     });
 
-    //Групп для CRUD девушек
+    //Группа для CRUD девушек
     Route::group(['namespace' => 'Girl', 'prefix' => 'girls'], function () {
         Route::get('/', 'IndexController')->name('admin.girls.index');
         Route::get('/create', 'CreateController')->name('admin.girls.create');
         Route::post('/', 'StoreController')->name('admin.girls.store');
+    });
+
+    //Группа для CRUD юзеров
+    //Группа роутов для управления юзерами из админки
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', 'IndexController')->name('admin.users.index');
+        Route::get('/create', 'CreateController')->name('admin.users.create');
+        Route::post('/', 'StoreController')->name('admin.users.store');
+        Route::get('/{user}', 'ShowController')->name('admin.users.show');
+        Route::get('/{user}/edit', 'EditController')->name('admin.users.edit');
+        Route::patch('/{user}', 'UpdateController')->name('admin.users.update');
+        Route::delete('/{user}', 'DeleteController')->name('admin.users.delete');
     });
 
 });
