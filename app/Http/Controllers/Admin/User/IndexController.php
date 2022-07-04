@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         $roles = User::getRoles();
         return view('admin.users.index', compact('users', 'roles'));
     }
