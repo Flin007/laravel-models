@@ -64,9 +64,6 @@
     <footer class="main-footer">
         <strong>Copyright &copy; 2022</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            Based on <a target="_blank" href="https://adminlte.io/">Adminlte v3.2.0</a>
-        </div>
     </footer>
 
     <!-- Control Sidebar -->
