@@ -35,6 +35,7 @@ class StoreRequest extends FormRequest
             'silicon'       => 'nullable|boolean',
             'weight'        => 'nullable|integer',
             'eyes_color'    => 'nullable|string',
+            'photos'        => 'nullable'
         ];
     }
 
