@@ -36,10 +36,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/', 'IndexController')->name('admin.girls.index');
         Route::get('/create', 'CreateController')->name('admin.girls.create');
         Route::post('/', 'StoreController')->name('admin.girls.store');
+        Route::get('/{girl}', 'ShowController')->name('admin.girls.show');
+        Route::get('/{girl}/edit', 'EditController')->name('admin.girls.edit');
+        Route::patch('/{girl}', 'UpdateController')->name('admin.girls.update');
+        Route::delete('/{girl}', 'DeleteController')->name('admin.girls.delete');
     });
 
     //Группа для CRUD юзеров
-    //Группа роутов для управления юзерами из админки
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
         Route::get('/', 'IndexController')->name('admin.users.index');
         Route::get('/create', 'CreateController')->name('admin.users.create');
