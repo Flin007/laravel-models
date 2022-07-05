@@ -33,10 +33,39 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('admin.girls.update', $girl->id) }}" method="POST">
+                            <form
+                                action="{{ route('admin.girls.update', $girl->id) }}"
+                                method="POST"
+                                enctype="multipart/form-data"
+                            >
                                 @csrf
                                 @method('PATCH')
                                 <div class="card-body">
+                                    <!-- Фотографии -->
+                                    <style>
+                                        .custom-file-input:lang(en)~.custom-file-label::after{
+                                            content: 'Выбрать';
+                                        }
+                                    </style>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Фотографии</label>
+                                        <div
+                                            class="input-group {{ $errors->has('photos') ? ' is-invalid' : ''}}">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="photos"
+                                                       name="photos[]" multiple>
+                                                <label class="custom-file-label" for="photos">Выберите
+                                                    изображения</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="btn input-group-text">Загрузить</span>
+                                            </div>
+                                        </div>
+                                        @error('photos')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
                                     <!-- Имя девушки -->
                                     <div class="form-group">
                                         <label for="name">Имя</label>

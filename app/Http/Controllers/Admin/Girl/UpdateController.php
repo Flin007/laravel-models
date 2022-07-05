@@ -8,9 +8,17 @@ use App\Models\Girl;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request, Girl $girl )
+    public function __invoke(UpdateRequest $request, Girl $girl, GirlMethods $girlMethods)
     {
         $data = $request->validated();
+
+        //Проверяем есть ли уже загруженные фото у девушки и удаляем их
+        $girlMethods->processUpdatedPhotos($girl->photos_json);
+
+        //Добавляем строку в формате json с ссылками на загруженные фото
+        $data['photos_json'] = $girlMethods->processUploadedPhotos($data['photos']);
+        unset($data['photos']);
+
         $girl->update($data);
         return view('admin.girls.show', compact('girl'));
     }
