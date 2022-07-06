@@ -103,6 +103,8 @@
 <script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js') }}"></script>
 <!-- Ekko Lightbox -->
 <script src="{{ asset('plugins/ekko-lightbox/ekko-lightbox.min.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         //Summernote
@@ -126,6 +128,11 @@
 
         //Inputmask
         $('[data-mask]').inputmask();
+
+        //CustomFileInput init
+        $(function () {
+            bsCustomFileInput.init();
+        });
 
         //Ekko Lightbox
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
