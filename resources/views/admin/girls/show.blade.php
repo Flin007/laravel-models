@@ -32,9 +32,15 @@
                             </div>
                             <div class="card-body">
                                 @if($girlPhotos ?? '')
-                                    @foreach($girlPhotos as $photo)
-                                        <img src="{{ Storage::url($photo) }}" alt="">
-                                    @endforeach
+                                    <div class="row">
+                                        @foreach($girlPhotos as $key => $photo)
+                                            <div class="col-sm-2">
+                                                <a href="{{ Storage::url($photo) }}" data-toggle="lightbox" data-title="{{ $girl->name }}, фото №{{ $key+1 }}" data-gallery="gallery">
+                                                    <img src="{{ Storage::url($photo) }}" class="img-fluid mb-2" alt="{{ $girl->name }}"/>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 @endif
                                 <table class="table table-bordered">
                                     <tbody>
