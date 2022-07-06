@@ -31,6 +31,11 @@
                                 <h3 class="card-title">Просмотр данных девушки</h3>
                             </div>
                             <div class="card-body">
+                                @if($girlPhotos ?? '')
+                                    @foreach($girlPhotos as $photo)
+                                        <img src="{{ Storage::url($photo) }}" alt="">
+                                    @endforeach
+                                @endif
                                 <table class="table table-bordered">
                                     <tbody>
                                     <tr>

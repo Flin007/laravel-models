@@ -9,6 +9,7 @@ class ShowController extends Controller
 {
     public function __invoke(Girl $girl)
     {
-        return view('admin.girls.show', compact('girl'));
+        $girlPhotos = Girl::getPhotosArray($girl);
+        return view('admin.girls.show', compact('girl','girlPhotos'));
     }
 }

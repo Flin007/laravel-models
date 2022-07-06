@@ -33,8 +33,7 @@ class GirlMethods
         if (isset($photos_json)){
             $photos = json_decode($photos_json);
             foreach ($photos as $photo){
-                Storage::disk('public')->exists($photo) ?? Storage::disk('public')->delete($photo);
-
+                Storage::disk('public')->delete($photo);
             }
         }
     }

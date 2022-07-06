@@ -14,7 +14,9 @@ class UpdateController extends Controller
 
         if (isset($data['photos'])){
             //Проверяем есть ли уже загруженные фото у девушки и удаляем их
-            $girlMethods->processUpdatedPhotos($girl->photos_json);
+            if (isset($girl->photos_json)){
+                $girlMethods->processUpdatedPhotos($girl->photos_json);
+            }
 
             //Добавляем строку в формате json с ссылками на загруженные фото
             $data['photos_json'] = $girlMethods->processUploadedPhotos($data['photos']);
@@ -22,6 +24,8 @@ class UpdateController extends Controller
         }
 
         $girl->update($data);
-        return view('admin.girls.show', compact('girl'));
+
+        $girlPhotos = Girl::getPhotosArray($girl);
+        return view('admin.girls.show', compact('girl','girlPhotos'));
     }
 }
