@@ -28,7 +28,24 @@
                     <div class="col-md-12 col-xl-10">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Просмотр данных девушки</h3>
+                                <div class="row d-flex justify-content-between">
+                                    <h3 class="card-title">Просмотр данных девушки
+                                    </h3>
+                                    <div>
+                                        <a href="{{ route('admin.girls.edit', $girl->id) }}" class="mr-2">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form class="d-inline-block"
+                                              action="{{ route('admin.girls.delete', $girl->id) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="border-0 bg-transparent">
+                                                <i class="fas fa-trash text-danger" role="button"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 @if($girlPhotos ?? '')

@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function __invoke(Girl $girl)
     {
-        return view('admin.girls.edit', compact('girl'));
+        $girlPhotos = Girl::getPhotosArray($girl);
+        return view('admin.girls.edit', compact('girl', 'girlPhotos'));
     }
 }

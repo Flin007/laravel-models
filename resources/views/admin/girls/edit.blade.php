@@ -13,7 +13,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
-                        <li class="breadcrumb-item active">Изменить</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.girls.show', $girl->id) }}">{{ $girl->name }}</a></li>
+                        <li class="breadcrumb-item active">Редактирование</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -41,6 +42,19 @@
                                 @csrf
                                 @method('PATCH')
                                 <div class="card-body">
+                                    <!-- Используемые фотографии -->
+                                    @if($girlPhotos ?? '')
+                                        <label>Используемые фото:</label>
+                                        <div class="row">
+                                            @foreach($girlPhotos as $key => $photo)
+                                                <div class="col-sm-2">
+                                                    <a href="{{ Storage::url($photo) }}" data-toggle="lightbox" data-title="{{ $girl->name }}, фото №{{ $key+1 }}" data-gallery="gallery">
+                                                        <img src="{{ Storage::url($photo) }}" class="img-fluid mb-2" alt="{{ $girl->name }}"/>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    @endif
                                     <!-- Фотографии -->
                                     <style>
                                         .custom-file-input:lang(en)~.custom-file-label::after{
@@ -48,7 +62,7 @@
                                         }
                                     </style>
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Фотографии</label>
+                                        <label for="exampleInputFile">Загрузить новые фотографии<span class="small text-muted"> (Заменят старые)</span></label>
                                         <div
                                             class="input-group {{ $errors->has('photos') ? ' is-invalid' : ''}}">
                                             <div class="custom-file">
