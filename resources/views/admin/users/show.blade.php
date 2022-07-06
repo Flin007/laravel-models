@@ -28,7 +28,26 @@
                     <div class="col-md-12 col-xl-10">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Просмотр данных пользователя</h3>
+                                <div class="row d-flex justify-content-between">
+                                    <h3 class="card-title">Просмотр данных пользователя
+                                    </h3>
+                                    <div>
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="mr-2">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        @if(auth()->user()->id !== $user->id)
+                                            <form class="d-inline-block"
+                                                  action="{{ route('admin.users.delete', $user->id) }}"
+                                                  method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent">
+                                                    <i class="fas fa-trash text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table class="table table-bordered">

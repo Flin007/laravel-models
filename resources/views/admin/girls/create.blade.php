@@ -57,9 +57,6 @@
                                                     <label class="custom-file-label" for="photos">Выберите
                                                         изображения</label>
                                                 </div>
-                                                <div class="input-group-append">
-                                                    <span class="btn input-group-text">Загрузить</span>
-                                                </div>
                                             </div>
                                             @error('photos')
                                             <span class="error invalid-feedback">{{ $message }}</span>

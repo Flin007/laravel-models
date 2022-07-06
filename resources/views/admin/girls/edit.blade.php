@@ -13,6 +13,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.girls.index')}}">Девушки</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.girls.show', $girl->id) }}">{{ $girl->name }}</a></li>
                         <li class="breadcrumb-item active">Редактирование</li>
                     </ol>
@@ -70,9 +71,6 @@
                                                        name="photos[]" multiple>
                                                 <label class="custom-file-label" for="photos">Выберите
                                                     изображения</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="btn input-group-text">Загрузить</span>
                                             </div>
                                         </div>
                                         @error('photos')
