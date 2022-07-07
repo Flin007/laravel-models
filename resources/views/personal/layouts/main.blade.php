@@ -57,8 +57,8 @@
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        @include('admin.includes.panelHeaderLogo')
-        @include('admin.includes.sidebar')
+        @include('personal.includes.panelHeaderLogo')
+        @include('personal.includes.sidebar')
     </aside>
 
     @yield('content')

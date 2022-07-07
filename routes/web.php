@@ -55,6 +55,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 
 });
 
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
+
+    //Просмотр и обновление информации пользователя из ЛК
+    Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
+        Route::get('/', 'EditController')->name('personal.profile.index');
+        Route::patch('/update', 'UpdateController')->name('personal.profile.update');
+    });
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
