@@ -1,6 +1,13 @@
 * {
     font-family: 'Playfair Display', serif;
 }
+.ff-inter{
+    font-family: 'Inter', sans-serif;
+}
+.ff-inter-light{
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
 
 :root {
     --main_color: #FFB796;

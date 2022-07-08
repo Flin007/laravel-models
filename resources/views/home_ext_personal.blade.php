@@ -12,9 +12,9 @@
                 <div class="right_block d-flex justify-content-space-between">
                     <div class="search_and_city d-flex justify-content-space-between align-items-center">
                         <form action="">
-                            <input type="text" name="search" placeholder="Поиск">
+                            <input class="ff-inter-light" type="text" name="search" placeholder="Поиск">
                         </form>
-                        <span class="city">ГОРОД</span>
+                        <span class="city ff-inter-light">ГОРОД</span>
                     </div>
                     <div class="account">
                         @if(auth()->user())
