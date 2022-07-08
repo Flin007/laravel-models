@@ -14,7 +14,7 @@
                         <form action="">
                             <input type="text" name="search" placeholder="Поиск">
                         </form>
-                        <span>ГОРОД</span>
+                        <span class="city">ГОРОД</span>
                     </div>
                     <div class="account">
                         @if(auth()->user())
