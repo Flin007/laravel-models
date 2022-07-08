@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,11 +57,23 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
+    Route::get('/', 'PersonalHomeController')->name('personal.index');
 
     //Просмотр и обновление информации пользователя из ЛК
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
         Route::get('/', 'EditController')->name('personal.profile.index');
         Route::patch('/update', 'UpdateController')->name('personal.profile.update');
+    });
+
+    //Список девушек, просмотр страниц, добавление в избранное, покупка контактов
+    Route::group(['namespace' => 'Discover', 'prefix' => 'discover'], function () {
+        Route::get('/', 'IndexController')->name('personal.discover.index');
+        /*Route::get('/create', 'CreateController')->name('personal.discover.create');
+        Route::post('/', 'StoreController')->name('personal.discover.store');
+        Route::get('/{girl}', 'ShowController')->name('personal.discover.show');
+        Route::get('/{girl}/edit', 'EditController')->name('personal.discover.edit');
+        Route::patch('/{girl}', 'UpdateController')->name('personal.discover.update');
+        Route::delete('/{girl}', 'DeleteController')->name('personal.discover.delete');*/
     });
 });
 

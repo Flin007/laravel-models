@@ -11,18 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap"
           rel="stylesheet">
     <!-- Normolize.css -->
-    <link rel="stylesheet" href="{{ asset('personal/css/normolize.css') }}">
+    <link rel="stylesheet" href="css/normolize.css">
     <!-- Common css file -->
-    <link rel="stylesheet" href="{{ asset('personal/css/style.css') }}">
-    <!-- Jq in header for correct work -->
-    <script src="{{ asset('personal/js/jq.js') }}"></script>
-    <title>@yield('title')</title>
-</head>
-<body>
-<div class="wrapper">
-    @yield('content')
-</div>
-</body>
-<!-- Main Js file -->
-<script src="{{ asset('personal/js/main.js') }}"></script>
-</html>
+    <link rel="stylesheet" href="css/style.css">

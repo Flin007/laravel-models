@@ -13,11 +13,11 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header">Основное меню</li>
             <li class="nav-item">
-                <a href="{{ Route::currentRouteName() === 'admin.users.index' ? '#' : route('admin.users.index') }}"
+                <a href="{{ Route::currentRouteName() === 'pag.users.index' ? '#' : route('admin.users.index') }}"
                    class="nav-link {{ Route::currentRouteName() === 'admin.users.index' ? 'active' : '' }}">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Пользователи
+                        Модели
                     </p>
                 </a>
             </li>

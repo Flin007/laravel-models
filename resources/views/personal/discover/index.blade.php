@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('personal.layouts.main')
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.index')}}">Главная</a></li>
                             <li class="breadcrumb-item active">Девушки</li>
                         </ol>
                     </div><!-- /.col -->
