@@ -4,7 +4,11 @@
     <section class="welcome">
         <div class="header">
             <div class="container d-flex justify-content-space-between align-items-center">
-                <a class="toggle_nav" href="">Б</a>
+                <div class="menu_burger toggle_nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div class="right_block d-flex justify-content-space-between">
                     <div class="search_and_city d-flex justify-content-space-between align-items-center">
                         <form action="">
@@ -38,9 +42,9 @@
                     </div>
                 </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="">О сервисе</a></li>
+            <nav class="main_menu">
+                <ul class="d-flex justify-content-center align-items-center">
+                    <li><a class="active" href="">О сервисе</a></li>
                     <li><a href="">Топ моделей</a></li>
                     <li><a href="">Сейчас доступные</a></li>
                 </ul>
