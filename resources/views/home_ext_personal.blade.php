@@ -20,7 +20,8 @@
                         @if(auth()->user())
                             <div class="user_menu_toggle">
                                 @if(auth()->user()->photo ?? '')
-                                    <img src="{{ Storage::url(auth()->user()->photo) }}" class="user_rounded_avatar" alt="{{ auth()->user()->name }}"/>
+                                    <img src="{{ Storage::url(auth()->user()->photo) }}" class="user_rounded_avatar"
+                                         alt="{{ auth()->user()->name }}"/>
                                 @else
                                     <span class="user_rounded_avatar no_avatar"></span>
                                 @endif
@@ -59,6 +60,29 @@
                 TELEGRAM
             </a>
             <p class="mt-1 color-white fw-b ta-c">24/7</p>
+        </div>
+    </section>
+    <section class="slider_after_main">
+        <div class="header d-flex justify-content-space-between align-items-center">
+            <div class="social">
+                <span class="color-white">ПРИСОЕДИНЯЙСЯ: </span>
+                <a class="link tg" href="#"></a>
+            </div>
+            <div class="girls_slider_nav color-white">
+                <a class="girls_slider__prev"><span><</span> НАЗАД</a>
+                <span> / </span>
+                <a class="girls_slider__next">ДАЛЕЕ <span>></span></a>
+            </div>
+        </div>
+        <div class="girls_slider">
+            @if(count($girls_slider) > 0)
+                @foreach($girls_slider as $girl)
+                    <div>
+                        <img src="{{ Storage::url($girl['photo']) }}" alt="">
+                        <span class="name">{{ $girl['name'] }}</span>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </section>
 @endsection

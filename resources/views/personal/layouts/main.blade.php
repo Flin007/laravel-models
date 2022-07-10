@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <!-- Normolize.css -->
     <link rel="stylesheet" href="{{ asset('personal/css/normolize.css') }}">
+    <!-- Slick slider -->
+    <link rel="stylesheet" href="{{ asset('personal/plugins/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('personal/plugins/slick/slick-theme.css') }}">
     <!-- Common css file -->
     <link rel="stylesheet" href="{{ asset('personal/css/style.css') }}">
     <!-- Jq in header for correct work -->
@@ -27,6 +30,8 @@
     @yield('content')
 </div>
 </body>
+<!-- Slick slider -->
+<script src="{{ asset('personal/plugins/slick/slick.min.js') }}"></script>
 <!-- Main Js file -->
 <script src="{{ asset('personal/js/main.js') }}"></script>
 </html>

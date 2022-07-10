@@ -33,4 +33,15 @@ $(document).ready(function () {
         userMenuToggle(e); //Показ  и скрытие меню пользователя
         burgerMenuToggle(e); //Показ основного меню, смена стиля кнопки бургер
     });
+
+
+    //Slick slider girls_slider init
+    $('.girls_slider').slick({
+        infinite: true,
+        touchMove: false,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        prevArrow: $('.girls_slider_nav .girls_slider__prev'),
+        nextArrow: $('.girls_slider_nav .girls_slider__next'),
+    });
 });
