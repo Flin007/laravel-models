@@ -1,7 +1,7 @@
 @extends('personal.layouts.main')
 @section('title', 'ORAY AGENCY')
 @section('content')
-    <section class="welcome">
+    <section class="welcome d-flex flex-direction-column justify-content-space-between">
         <div class="header">
             <div class="container d-flex justify-content-space-between align-items-center">
                 <div class="menu_burger toggle_nav">
@@ -49,6 +49,16 @@
                     <li><a href="">Сейчас доступные</a></li>
                 </ul>
             </nav>
+        </div>
+        <div class="logo_container">
+            <div class="logo"></div>
+        </div>
+        <div class="footer">
+            <h2>CONNECT US NOW</h2>
+            <a href="" class="tg_button">
+                TELEGRAM
+            </a>
+            <p class="mt-1 color-white fw-b ta-c">24/7</p>
         </div>
     </section>
 @endsection
