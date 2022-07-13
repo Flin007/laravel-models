@@ -179,7 +179,7 @@
     color: red;
     font-size: .6rem;
     position: absolute;
-    bottom: -15px;
+    top: 62px;
 }
 
 .wrapper main .login_register .input_row .submit {

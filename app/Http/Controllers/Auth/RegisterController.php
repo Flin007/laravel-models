@@ -49,11 +49,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'name.required' => 'Обязательное поле',
+            'name.string' => 'Поле принимает только строку',
+            'name.max' => 'Имя не может быть длиннее 255 символов',
+            'name.min' => 'Имя не может быть короче 3 сиволов',
+            'email.required' => 'Обязательное поле',
+            'email.string' => 'Поле принимает только строку',
+            'email.email' => 'Неверный формат email',
+            'email.max' => 'Имя не может быть длиннее 255 символов',
+            'email.unique' => 'Такой email уже зарегистрирован',
+            'password.required' => 'Обязательное поле',
+            'password.string' => 'Поле принимает только строку',
+            'password.min' => 'Минимальная длина 8 символов',
+            'password.confirmed' => 'Пароль и Повторный пароль отличаются',
+        ];
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ], $messages);
     }
 
     /**
