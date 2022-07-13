@@ -1,77 +1,61 @@
 @extends('layouts.app')
 @section('title', 'Регистрация - ORAY AGENCY')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="login_register">
+        <div class="header">
+            Регистрация
+        </div>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+            <div class="input_row  @error('name') error @enderror">
+                <label for="name">Имя</label>
+                <input id="name" type="text" name="name"
+                       value="{{ old('name') }}" required autocomplete="name"
+                       autofocus placeholder="Ваше имя...">
+                @error('name')
+                <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+            <div class="input_row  @error('email') error @enderror">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email"
+                       value="{{ old('email') }}" required autocomplete="email"
+                       placeholder="Ваш email...">
+                @error('email')
+                <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <div class="input_row  @error('password') error @enderror">
+                <label for="password">Пароль</label>
+                <input id="password" type="password" name="password"
+                       required autocomplete="new-password">
+                @error('password')
+                <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <div class="input_row  @error('password-confirm') error @enderror">
+                <label for="password-confirm">Повторите пароль</label>
+                <input id="password-confirm" type="password" name="password_confirmation"
+                       required autocomplete="new-password">
+            </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+            <div class="input_row">
+                <button type="submit" class="submit">
+                    Зарегистрироваться
+                </button>
+            </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="footer_links">
+                <div class="row">
+                    <a href="{{ route('login') }}">
+                        Уже есть аккаунт?
+                    </a>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-</div>
 @endsection

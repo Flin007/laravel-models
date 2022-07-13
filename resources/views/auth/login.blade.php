@@ -9,7 +9,8 @@
             @csrf
             <div class="input_row @error('email') error @enderror">
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required placeholder="Ваш email...">
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                       placeholder="Ваш email...">
                 @error('email')
                 <span class="error">{{ $message }}</span>
                 @enderror

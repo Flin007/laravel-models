@@ -145,11 +145,16 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .wrapper main .login_register .input_row label {
     display: inline-block;
     margin-bottom: 5px;
+}
+
+.wrapper main .login_register .input_row.error label{
+    color: red;
 }
 
 .wrapper main .login_register .input_row input:not([type='checkbox']) {
@@ -162,11 +167,22 @@
     border-bottom: 1px solid var(--main_color);
 }
 
+.wrapper main .login_register .input_row.error input:not([type='checkbox']) {
+    border-color: red;
+}
+
 .wrapper main .login_register .input_row input:not([type='checkbox'])::placeholder {
     color: var(--disabled);
 }
 
-.wrapper main .login_register .input_row .submit{
+.wrapper main .login_register .input_row span.error {
+    color: red;
+    font-size: .6rem;
+    position: absolute;
+    bottom: -15px;
+}
+
+.wrapper main .login_register .input_row .submit {
     cursor: pointer;
     width: 200px;
     height: 40px;
@@ -178,11 +194,19 @@
     font-family: 'Inter';
 }
 
-.wrapper main .login_register .footer_links .row{
+.wrapper main .login_register .footer_links .row {
     margin-bottom: 10px;
 }
-.wrapper main .login_register .footer_links .row a{
+
+.wrapper main .login_register .footer_links .row a {
     font-size: .9rem;
     text-decoration: none;
     color: black;
+}
+
+@media (max-width: 480px) {
+    .wrapper main .login_register {
+        width: 80%;
+        padding: 30px 25px;
+    }
 }
