@@ -44,4 +44,18 @@ $(document).ready(function () {
         prevArrow: $('.girls_slider_nav .girls_slider__prev'),
         nextArrow: $('.girls_slider_nav .girls_slider__next'),
     });
+
+    //Modals
+    $('.modal').on('click', function (e) {
+        let closeButton = $(this).find('.close');
+        console.log(closeButton);
+        if ($(this).is(e.target)) {
+            $(this).fadeOut('fast');
+        }
+    });
+    $('.show_modal').on('click', function (e) {
+        e.preventDefault()
+        let modalName = $(this).data('target');
+        $('.modal[data-modal="' + modalName + '"]').fadeIn('fast').css({display: 'flex'});
+    });
 });

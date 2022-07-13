@@ -1,0 +1,73 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+}
+
+.wrapper header {
+    min-height: 90px;
+    background-color: #131313;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper main {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("white-texture.png");
+    background-size: cover;
+}
+
+.wrapper main .content-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper main .content-404 .left {
+    margin-right: 200px;
+}
+
+.wrapper main .content-404 .left h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14rem;
+    line-height: 14rem;
+    margin: unset;
+}
+
+.wrapper main .content-404 .left p {
+    font-size: 33px;
+    margin: unset;
+}
+
+.wrapper main .content-404 .left a{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    background: #FED0AE;
+    box-shadow: 0px 0px 27px rgba(0, 0, 0, 0.13);
+    padding: 16px 100px;
+    transition: .3s ease-in-out;
+}
+.wrapper main .content-404 .left a:hover{
+    box-shadow: unset;
+    background-color: #fdc8a1;
+}
+
+.wrapper main .content-404 .right {
+    height: 80%;
+}
+
+.wrapper main .content-404 .right svg {
+    height: 100%;
+}
