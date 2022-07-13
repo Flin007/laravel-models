@@ -47,7 +47,7 @@
     margin: unset;
 }
 
-.wrapper main .content-404 .left a{
+.wrapper main .content-404 .left a {
     display: inline-block;
     text-decoration: none;
     margin-top: 40px;
@@ -59,7 +59,8 @@
     padding: 16px 100px;
     transition: .3s ease-in-out;
 }
-.wrapper main .content-404 .left a:hover{
+
+.wrapper main .content-404 .left a:hover {
     box-shadow: unset;
     background-color: #fdc8a1;
 }
@@ -70,4 +71,41 @@
 
 .wrapper main .content-404 .right svg {
     height: 100%;
+}
+
+@media (max-width: 1280px) {
+    .wrapper main .content-404 {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+
+    .wrapper main .content-404 .left {
+        margin-right: unset;
+    }
+}
+
+@media (max-width: 1024px) {
+    .wrapper main .content-404 .right {
+        position: absolute;
+        z-index: 0;
+        opacity: 0.5;
+        right: 10%;
+    }
+    .wrapper main .content-404 .left{
+        position: relative;
+        z-index: 1;
+    }
+}
+@media(max-width: 800px){
+    .wrapper main .content-404 .left{
+        text-align: center;
+    }
+}
+@media(max-width: 600px){
+    .wrapper main .content-404 .left h1{
+        font-size: 12rem;
+    }
+    .wrapper main .content-404 .left p{
+        font-size: 2rem;
+    }
 }
