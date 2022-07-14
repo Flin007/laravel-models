@@ -58,4 +58,14 @@ $(document).ready(function () {
         let modalName = $(this).data('target');
         $('.modal[data-modal="' + modalName + '"]').fadeIn('fast').css({display: 'flex'});
     });
+
+    //Check age verified in cookies
+    if (!$.cookie('age_verified')){
+        $('.age_verified_window').fadeIn('fast').css({display: 'flex'});
+    }
+    $('.age_verified_window .confirm_age_btn').on('click', function (e){
+        e.preventDefault();
+        $.cookie('age_verified', 1);
+        $('.age_verified_window').fadeOut('fast');
+    });
 });
