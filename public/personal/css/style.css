@@ -368,6 +368,7 @@ section.welcome .header .right_block .account nav.user_menu ul {
 
 section.welcome .header .right_block .account nav.user_menu ul li a,
 section.welcome .header .right_block .account nav.user_menu ul li input {
+    font-size: 1rem;
     user-select: none;
     background: transparent;
     border: unset;
