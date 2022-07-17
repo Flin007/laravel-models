@@ -28,7 +28,11 @@
                             </div>
                             <nav class="user_menu">
                                 <ul>
-                                    <li><a href="">Профиль</a></li>
+                                    <li><a href="{{ route('personal.discover.index') }}">Модели</a></li>
+                                    <li><a href="{{ route('personal.profile.index') }}">Профиль</a></li>
+                                    @if(auth()->user()->role == 0)
+                                        <li><a href="{{ route('admin.main.index') }}">Админка</a></li>
+                                    @endif
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf

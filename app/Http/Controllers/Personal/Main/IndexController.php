@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Personal;
+namespace App\Http\Controllers\Personal\Main;
 
 use App\Http\Controllers\Controller;
-use App\Models\Girl;
 
-class PersonalHomeController extends Controller
+class IndexController extends Controller
 {
     public function __invoke()
     {

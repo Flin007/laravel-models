@@ -57,7 +57,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
-    Route::get('/', 'PersonalHomeController')->name('personal.index');
+
+    //Группа для основных страниц панели управления
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
 
     //Просмотр и обновление информации пользователя из ЛК
     Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
