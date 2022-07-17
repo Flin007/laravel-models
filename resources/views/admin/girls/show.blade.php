@@ -175,6 +175,16 @@
                                             @endisset
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>Стоимость</td>
+                                        <td>
+                                            @isset($girl->price)
+                                                {{ $girl->price }}
+                                            @else
+                                                -
+                                            @endisset
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

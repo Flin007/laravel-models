@@ -35,7 +35,8 @@ class StoreRequest extends FormRequest
             'silicon'       => 'nullable|boolean',
             'weight'        => 'nullable|integer',
             'eyes_color'    => 'nullable|string',
-            'photos'        => 'nullable'
+            'photos'        => 'nullable',
+            'price'         => 'nullable|integer',
         ];
     }
 
@@ -58,6 +59,7 @@ class StoreRequest extends FormRequest
             'silicon.boolean' => 'Поле принимает (1,0,true,false)',
             'weight.integer' => 'Поле должно быть в числовом формате',
             'eyes_color.string' => 'Поле должно быть в формате строки',
+            'price.integer' => 'Поле должно быть в числовом формате',
         ];
     }
 }

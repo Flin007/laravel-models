@@ -249,6 +249,21 @@
                                         @enderror
                                     </div>
 
+                                    <!-- Цена-->
+                                    <div class="form-group">
+                                        <label for="price">Стоимость<span class="small text-muted"> Необязательное</span></label>
+                                        <input id="price"
+                                               name="price"
+                                               type="text"
+                                               class="form-control{{ $errors->has('price') ? ' is-invalid' : ''}}"
+                                               placeholder="10000"
+                                               value="{{ $girl->price }}"
+                                        >
+                                        @error('rice')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
                                 </div>
                                 <!-- /.card-body -->
 
