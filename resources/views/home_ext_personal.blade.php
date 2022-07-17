@@ -1,6 +1,7 @@
 @extends('personal.layouts.main')
 @section('title', 'ORAY AGENCY')
 @section('content')
+    <!-- welcome -->
     <section class="welcome d-flex flex-direction-column justify-content-space-between">
         <div class="header">
             <div class="container d-flex justify-content-space-between align-items-center">
@@ -66,6 +67,8 @@
             <p class="mt-1 color-white fw-b ta-c">24/7</p>
         </div>
     </section>
+
+    <!-- slider_after_main -->
     <section class="slider_after_main">
         <div class="header d-flex justify-content-space-between align-items-center">
             <div class="social">
@@ -87,6 +90,31 @@
                     </div>
                 @endforeach
             @endif
+        </div>
+    </section>
+
+    <!-- girls_grid -->
+    <section class="girls_grid">
+        <div class="grid">
+            <div class="grid-item" style='background-image: url("/storage/images/yLCAm7wzJTiIipb6uA99ZcyleTlhSKbxWBEk6b0P.jpg")'>
+                <h3>Виктория</h3>
+                <div class="girl_data d-flex align-items-center justify-content-center">
+                    <div class="data-container">
+                        <div class="header">
+                            <div class="age">
+                                <span>Возраст</span>
+                                <span>23</span>
+                            </div>
+                            <div class="city">
+                                <span>Город</span>
+                                <span>Москва</span>
+                            </div>
+                        </div>
+                        <div class="price">10 000 р</div>
+                        <div class="ta-c"><a href="">Выбрать</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
