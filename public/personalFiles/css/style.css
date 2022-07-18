@@ -676,11 +676,12 @@ section.girls_grid .grid .grid-item .girl_data {
     height: 100px;
     background: rgb(33 32 38 / 18%);
     backdrop-filter: blur(13px);
-    transition: transform .3s ease-in-out;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
 }
 
 section.girls_grid .grid .grid-item:hover .girl_data {
-    transform: translateY(-100px);
+    bottom: 0;
 }
 
 section.girls_grid .grid .grid-item .girl_data .header {
@@ -750,4 +751,33 @@ section.girls_grid .show_all {
 section.girls_grid .show_all:hover {
     background-color: white;
     color: var(--main_color);
+}
+
+
+/* SECTION statistic */
+section.statistic {
+    margin-top: 70px;
+}
+
+section.statistic .item:first-child{
+    margin-right: 200px;
+}
+
+section.statistic .item h3 {
+    font-weight: 700;
+    font-size: 43px;
+    color: white;
+    margin: unset;
+    text-align: center;
+}
+
+section.statistic .item h3 span {
+    color: var(--main_color);
+}
+
+section.statistic .item > span {
+    font-weight: 700;
+    font-size: 23px;
+    color: white;
+    text-align: center;
 }

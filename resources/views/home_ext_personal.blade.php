@@ -127,4 +127,14 @@
         </div>
         <a href="" class="show_all">ВСЕ МОДЕЛИ</a>
     </section>
+    <section class="statistic d-flex justify-content-center">
+        <div class="item">
+            <h3>более <span>100</span></h3>
+            <span>довольных гостей</span>
+        </div>
+        <div class="item">
+            <h3>более <span>70</span></h3>
+            <span>проверенных моделей</span>
+        </div>
+    </section>
 @endsection
