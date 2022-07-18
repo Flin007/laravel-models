@@ -756,10 +756,16 @@ section.girls_grid .show_all:hover {
 
 /* SECTION statistic */
 section.statistic {
+    position: relative;
     margin-top: 70px;
 }
 
-section.statistic .item:first-child{
+section.statistic .item {
+    position: relative;
+    z-index: 2;
+}
+
+section.statistic .item:first-child {
     margin-right: 200px;
 }
 
@@ -780,4 +786,57 @@ section.statistic .item > span {
     font-size: 23px;
     color: white;
     text-align: center;
+}
+
+section.statistic:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: -150px;
+    width: 100%;
+    height: 528px;
+    display: block;
+    background: linear-gradient(180deg, rgba(33, 32, 38, 0) 0%, #212026 44.27%);
+    transform: rotate(-180deg);
+}
+
+/* SECTION about_service*/
+section.about_service {
+    min-height: 120vh;
+    position: relative;
+    padding-top: 220px;
+    background-image: url("../images/about_service/background.png");
+}
+
+section.about_service > div {
+    min-width: 50%;
+}
+
+section.about_service .right h2 {
+    margin: unset;
+    margin-bottom: 100px;
+    font-weight: 700;
+    font-size: 43px;
+    color: var(--main_color);
+    text-align: center;
+}
+
+section.about_service .right .content .item {
+    max-width: 640px;
+    color: white;
+}
+
+section.about_service .right .content .item:first-child {
+    margin-bottom: 200px;
+}
+
+section.about_service .right .content .item h3 {
+    margin: unset;
+    font-weight: 700;
+    font-size: 33px;
+}
+
+section.about_service .right .content .item p {
+    margin: 20px 0;
 }
