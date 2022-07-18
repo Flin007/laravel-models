@@ -95,26 +95,36 @@
 
     <!-- girls_grid -->
     <section class="girls_grid">
-        <div class="grid">
-            <div class="grid-item" style='background-image: url("/storage/images/yLCAm7wzJTiIipb6uA99ZcyleTlhSKbxWBEk6b0P.jpg")'>
-                <h3>Виктория</h3>
-                <div class="girl_data d-flex align-items-center justify-content-center">
-                    <div class="data-container">
-                        <div class="header">
-                            <div class="age">
-                                <span>Возраст</span>
-                                <span>23</span>
+        <h2>COLLECTION OF THE MOST BEAUTIFUL <br>
+            PRIVAT ESCORTS <span>IN MOSCOW</span></h2>
+        <div class="grid_toggle">
+            <span class="active">ВСЕ МОДЕЛИ</span>
+             |
+            <span>СЕЙЧАС ДОСТУПНЫЕ</span>
+        </div>
+        <div class="grid g-all">
+            @foreach($popular_girls as $girl)
+                <div class="grid-item" style='background-image: url("{{ Storage::url($girl['photo']) }}")'>
+                    <h3>{{ $girl['name'] }}</h3>
+                    <div class="girl_data d-flex align-items-center justify-content-center">
+                        <div class="data-container">
+                            <div class="header">
+                                <div class="age">
+                                    <span>Возраст</span>
+                                    <span>{{ $girl['age'] }}</span>
+                                </div>
+                                <div class="city">
+                                    <span>Город</span>
+                                    <span>{{ $girl['city'] }}</span>
+                                </div>
                             </div>
-                            <div class="city">
-                                <span>Город</span>
-                                <span>Москва</span>
-                            </div>
+                            <div class="price">{{ $girl['price'] }} р</div>
+                            <div class="ta-c"><a href="">Выбрать</a></div>
                         </div>
-                        <div class="price">10 000 р</div>
-                        <div class="ta-c"><a href="">Выбрать</a></div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
+        <a href="" class="show_all">ВСЕ МОДЕЛИ</a>
     </section>
 @endsection

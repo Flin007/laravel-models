@@ -23,6 +23,22 @@ class indexController extends Controller
                     return $arr;
                 }
             );
-        return view('home_ext_personal', compact('girls_slider'));
+        $popular_girls = Girl::query()
+            ->limit(12)
+            ->whereNotNull('photos_json')
+            ->whereNotNull('price')
+            ->get()
+            ->map(
+                function ($model) {
+                    $arr['id'] = $model->id;
+                    $arr['name'] = $model->name;
+                    $arr['age'] = Carbon::parse($model->bday)->age;
+                    $arr['city'] = $model->city;
+                    $arr['photo'] = json_decode($model->photos_json)[0];
+                    $arr['price'] = $model->price;
+                    return $arr;
+                }
+            );
+        return view('home_ext_personal', compact('girls_slider', 'popular_girls'));
     }
 }

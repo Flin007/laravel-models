@@ -596,6 +596,41 @@ section.slider_after_main .girls_slider .slick-slide .name {
 /* Section girls_grid*/
 section.girls_grid {
     padding: 0 50px;
+    text-align: center;
+}
+
+section.girls_grid h2 {
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.13em;
+    color: white;
+    margin-top: 53px;
+    margin-bottom: 45px;
+}
+
+section.girls_grid h2 span {
+    color: var(--main_color);
+}
+
+section.girls_grid .grid_toggle {
+    text-align: center;
+    margin-bottom: 28px;
+    color: white;
+}
+
+section.girls_grid .grid_toggle span {
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.13em;
+    color: white;
+    cursor: pointer;
+}
+
+section.girls_grid .grid_toggle span.active {
+    color: var(--main_color);
+    cursor: default;
 }
 
 section.girls_grid .grid {
@@ -618,7 +653,7 @@ section.girls_grid .grid .grid-item {
 section.girls_grid .grid .grid-item h3 {
     text-align: center;
     font-weight: 700;
-    font-size: 2.3em;
+    font-size: 2em;
     color: white;
     text-shadow: 1px 1px 2px rgba(255, 183, 150, 0.88);
     text-transform: uppercase;
@@ -641,35 +676,36 @@ section.girls_grid .grid .grid-item .girl_data {
     height: 100px;
     background: rgb(33 32 38 / 18%);
     backdrop-filter: blur(13px);
-    transition: .3s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
-section.girls_grid .grid .grid-item:hover .girl_data{
+section.girls_grid .grid .grid-item:hover .girl_data {
     transform: translateY(-100px);
 }
 
-section.girls_grid .grid .grid-item .girl_data .header{
+section.girls_grid .grid .grid-item .girl_data .header {
     display: flex;
     margin-bottom: 3px;
 }
 
-section.girls_grid .grid .grid-item .girl_data .header > div{
+section.girls_grid .grid .grid-item .girl_data .header > div {
     display: flex;
     flex-wrap: wrap;
 }
-section.girls_grid .grid .grid-item .girl_data .header > div span{
+
+section.girls_grid .grid .grid-item .girl_data .header > div span {
     flex-basis: 100%;
     text-align: center;
 }
 
-section.girls_grid .grid .grid-item .girl_data .header > div span:nth-child(1){
+section.girls_grid .grid .grid-item .girl_data .header > div span:nth-child(1) {
     font-weight: 700;
     font-size: 9px;
     line-height: 12px;
     color: var(--main_color);
 }
 
-section.girls_grid .grid .grid-item .girl_data .header > div span:nth-child(2){
+section.girls_grid .grid .grid-item .girl_data .header > div span:nth-child(2) {
     font-weight: 700;
     font-size: 12px;
     line-height: 16px;
@@ -685,7 +721,7 @@ section.girls_grid .grid .grid-item .girl_data .price {
     text-align: center;
 }
 
-section.girls_grid .grid .grid-item .girl_data a{
+section.girls_grid .grid .grid-item .girl_data a {
     text-decoration: none;
     font-weight: 700;
     font-size: 19px;
@@ -694,6 +730,24 @@ section.girls_grid .grid .grid-item .girl_data a{
     transition: .3s ease-in-out;
 }
 
-section.girls_grid .grid .grid-item .girl_data a:hover{
+section.girls_grid .grid .grid-item .girl_data a:hover {
     color: white;
+}
+
+section.girls_grid .show_all {
+    display: inline-block;
+    margin: 80px auto;
+    font-weight: 500;
+    font-size: 13px;
+    color: white;
+    background-color: var(--main_color);
+    transition: .3s ease-in-out;
+    padding: 14px 52px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+section.girls_grid .show_all:hover {
+    background-color: white;
+    color: var(--main_color);
 }
