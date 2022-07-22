@@ -17,26 +17,24 @@ class indexController extends Controller
             ->get()
             ->map(
                 function ($model) {
-                    $arr['name'] = $model->name;
-                    $arr['age'] = Carbon::parse($model->bday)->age;
-                    $arr['photo'] = json_decode($model->photos_json)[0];
-                    return $arr;
+                    //Забираем только 1е фото
+                    $model->photo = json_decode($model->photos_json)[0];
+                    //Получаем возраст по дате рождения
+                    $model->age = Carbon::parse($model->bday)->age;
+                    return $model;
                 }
             );
         $popular_girls = Girl::query()
             ->limit(12)
             ->whereNotNull('photos_json')
-            ->whereNotNull('price')
             ->get()
             ->map(
                 function ($model) {
-                    $arr['id'] = $model->id;
-                    $arr['name'] = $model->name;
-                    $arr['age'] = Carbon::parse($model->bday)->age;
-                    $arr['city'] = $model->city;
-                    $arr['photo'] = json_decode($model->photos_json)[0];
-                    $arr['price'] = $model->price;
-                    return $arr;
+                    //Забираем только 1е фото
+                    $model->photo = json_decode($model->photos_json)[0];
+                    //Получаем возраст по дате рождения
+                    $model->age = Carbon::parse($model->bday)->age;
+                    return $model;
                 }
             );
         return view('home_ext_personal', compact('girls_slider', 'popular_girls'));

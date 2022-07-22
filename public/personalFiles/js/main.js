@@ -60,12 +60,37 @@ $(document).ready(function () {
     });
 
     //Check age verified in cookies
-    if (!$.cookie('age_verified')){
+    if (!$.cookie('age_verified')) {
         $('.age_verified_window').fadeIn('fast').css({display: 'flex'});
     }
-    $('.age_verified_window .confirm_age_btn').on('click', function (e){
+    $('.age_verified_window .confirm_age_btn').on('click', function (e) {
         e.preventDefault();
         $.cookie('age_verified', 1);
         $('.age_verified_window').fadeOut('fast');
     });
+
+    // ----- Profile page -----
+    const PROFILE_PHOTO = $('.profile_edit #profile');
+    const PROFILE_PHOTO_INPUT = $('.profile_edit #mediaFile');
+
+    PROFILE_PHOTO.on('click', function (e) {
+        PROFILE_PHOTO_INPUT.click();
+    });
+    PROFILE_PHOTO_INPUT.change(function (e) {
+        var input = e.target;
+        if (input.files && input.files[0]) {
+            var file = input.files[0];
+
+            var reader = new FileReader();
+
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                PROFILE_PHOTO.css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+            }
+        }
+    });
+    $('.profile_edit input.error').on('input', function (){
+       $(this).removeClass('error')
+    });
+
 });

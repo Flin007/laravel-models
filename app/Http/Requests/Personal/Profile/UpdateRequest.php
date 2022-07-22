@@ -46,6 +46,7 @@ class UpdateRequest extends FormRequest
             'photo.file' => 'Необходимо прикрепить файл',
             'photo.mimes' => 'Поддерживаемые форматы фото: jpg,jpeg,png',
             'photo.max' => 'Максимальный размер файла 256кб',
+            'phone_number.integer' => 'Только в числовом формате',
         ];
     }
 }

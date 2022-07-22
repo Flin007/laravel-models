@@ -1,6 +1,28 @@
-@extends('admin.layouts.main')
-
+@extends('personal.layouts.main')
+@section('title', $girl->name)
 @section('content')
+    @include('personal.includes.personal.header')
+    <section class="personal_breadcrumbs container d-flex justify-content-flex-end">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">ORAY</a>
+                </li>
+                <li>
+                    <a href="{{ route('personal.discover.index') }}">Personal</a>
+                </li>
+                <li>
+                    <a href="{{ route('personal.discover.index') }}">Discover</a>
+                </li>
+                <li>
+                    <a href="#">{{ $girl->name }}</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <!-- Normolize.css -->
-    <link rel="stylesheet" href="{{ asset('personal/css/normolize.css') }}">
+    <link rel="stylesheet" href="{{ asset('personalFiles/css/normolize.css') }}">
     <!-- Common css file -->
     <link rel="stylesheet" href="{{ asset('pages/style.css') }}">
     <title>@yield('title')</title>

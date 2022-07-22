@@ -43,18 +43,24 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0 25px;
+    }
+}
+
 .user_rounded_avatar {
+    display: block;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 2px solid var(--main_color);
+    background-size: 106%;
+    background-position: center;
 }
 
 .user_rounded_avatar.no_avatar {
-    display: block;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 64 64' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cg xmlns='http://www.w3.org/2000/svg' id='User'%3E%3Ccircle cx='32' cy='32' fill='%23ffe0cd' r='31' data-original='%23e6ecff' class=''%3E%3C/circle%3E%3Cg fill='%234294ff'%3E%3Cpath d='m56.877 50.4748a31.0647 31.0647 0 0 0 -49.7651-.0156 30.9669 30.9669 0 0 0 49.7651.0156z' fill='%23ffb699' data-original='%234294ff' class=''%3E%3C/path%3E%3Ccircle cx='32' cy='22' r='12' fill='%23ffb699' data-original='%234294ff' class=''%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    background-size: 106%;
-    background-position: center;
 }
 
 .d-block {
@@ -75,6 +81,10 @@ body {
 
 .justify-content-center {
     justify-content: center;
+}
+
+.justify-content-flex-end {
+    justify-content: flex-end;
 }
 
 .align-items-center {
@@ -151,6 +161,7 @@ body {
 /* Age vefified window, not default modal */
 .age_verified_window {
     position: fixed;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -221,11 +232,54 @@ body {
 
 
 /* Section Welcome */
-section.welcome {
+section.welcome:not(.personal) {
     position: relative;
-    height: 100vh;
+    height: calc(100vh + 100px);
     background-image: url("../images/welcome/background.png");
-    padding-bottom: 100px;
+    padding-bottom: 200px;
+}
+
+section.welcome.personal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+
+section.welcome.personal .logo {
+    font-size: 0;
+}
+
+section.welcome.personal .logo svg {
+    width: 140px;
+    height: auto;
+}
+
+section.welcome.personal .nav_menu ul {
+    list-style: none;
+    display: flex;
+    margin: unset;
+    padding: unset;
+}
+
+section.welcome.personal .nav_menu ul li {
+    margin-right: 30px;
+}
+
+section.welcome.personal .nav_menu ul li:last-child {
+    margin-right: unset;
+}
+
+section.welcome.personal .nav_menu ul li a {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: var(--main_color);
+}
+
+section.welcome.personal .nav_menu ul li a.active {
+    color: white;
 }
 
 section.welcome .header .menu_burger {
@@ -372,7 +426,7 @@ section.welcome .header > .container {
     backdrop-filter: blur(5px);
 }
 
-section.welcome .header .right_block {
+section.welcome:not(.personal) .header .right_block {
     flex-basis: 33%;
 }
 
@@ -456,9 +510,13 @@ section.welcome .header .right_block .account nav.user_menu ul li input:hover {
     color: var(--main_color);
 }
 
+section.welcome .header .right_block .account nav.user_menu ul li a.active {
+    color: var(--main_color);
+}
+
 section.welcome .logo_container {
     position: absolute;
-    top: 42%;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.27);
@@ -509,7 +567,7 @@ section.welcome .footer .tg_button:hover {
 /* Section Girls slider */
 section.slider_after_main {
     position: relative;
-    margin-top: -130px;
+    margin-top: -230px;
 }
 
 section.slider_after_main .social {
@@ -640,6 +698,10 @@ section.girls_grid .grid {
     gap: 35px;
 }
 
+section.girls_grid .grid.small {
+    grid-template-rows: repeat(1, 1fr);
+}
+
 section.girls_grid .grid .grid-item {
     position: relative;
     grid-row: span 1;
@@ -648,6 +710,13 @@ section.girls_grid .grid .grid-item {
     height: 20vw;
     background-size: cover;
     background-position: center;
+}
+
+section.girls_grid .grid .grid-item.no-photo {
+    background-image: url("data:image/svg+xml,%3Csvg width='150' height='250px' viewBox='0 0 327 823' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M309.619 823C324.784 817.513 324.632 817.513 324.86 800.215C324.936 793.204 326.308 786.194 326.003 779.183C325.394 765.847 324.022 752.588 323.108 739.252C322.955 736.509 323.489 733.689 323.641 730.946C323.87 726.983 325.317 723.173 320.745 719.973C318.916 718.677 318.611 714.333 318.688 711.362C319.221 689.948 319.755 668.535 320.745 647.198C321.66 627.309 318.535 607.953 314.725 588.521C313.277 580.977 312.439 573.204 312.287 565.584C311.982 546.838 312.591 528.092 312.058 509.346C311.144 473.454 309.619 437.485 308.629 401.594C308.476 395.192 310.458 388.791 310.763 382.39C311.448 369.74 312.515 357.014 311.829 344.365C310.915 328.133 308.324 311.978 306.724 295.747C304.133 269.38 301.77 242.937 299.332 217.409C299.865 218.705 300.856 220.915 302.151 223.886C302.609 222.439 302.914 221.524 303.599 219.314C304.59 220.991 305.352 222.21 306.495 224.115C307.181 222.972 307.638 222.439 307.791 221.905C309.162 214.894 311.677 207.96 307.943 200.797C306.266 197.672 307.257 197.52 309.315 191.348C310.153 188.909 308.4 185.708 307.867 182.813C306.495 174.583 305.123 166.429 304.514 157.894C305.352 159.647 306.266 161.399 307.105 163.152C307.486 163.076 307.867 162.924 308.324 162.847C307.029 155.76 305.733 148.597 304.438 141.51C304.666 141.434 304.819 141.358 305.047 141.282C305.962 142.958 306.876 144.635 307.867 146.692C305.733 130.613 303.599 114.839 301.542 99.0648C302.532 98.9124 303.599 98.76 304.59 98.6076C304.895 101.275 305.2 104.018 305.657 107.6C310.534 102.646 315.563 98.0742 319.831 92.8923C325.089 86.5674 324.555 79.4043 318.002 74.451C309.848 68.2785 305.733 59.5913 301.999 50.7517C297.274 39.6259 290.569 29.9481 282.262 21.4132C279.519 18.5937 275.328 17.2982 271.746 15.3169C267.707 13.107 263.135 11.4306 259.706 8.45861C252.771 2.59093 244.313 2.51472 236.311 1.60028C227.777 0.60963 218.937 1.44787 210.25 1.21926C208.116 1.14306 206.059 0.381019 204.001 0C195.314 0 186.627 0 177.939 0C175.425 0.457222 172.834 1.29546 170.319 1.21926C141.59 0.0762037 113.471 5.25806 85.2758 9.29685C72.7784 11.1257 70.2636 20.2702 72.9307 28.9574C77.8078 44.6554 82.9896 60.3533 89.1621 75.5941C96.6301 93.9592 105.165 111.943 113.471 130.004C115.224 133.89 117.586 137.624 120.329 140.901C127.874 149.816 129.169 160.866 130.998 171.611C131.303 173.287 128.636 175.573 127.112 177.326C122.311 182.736 116.672 187.614 112.709 193.557C104.708 205.674 106.079 229.221 116.214 240.118C121.777 246.138 124.063 252.539 126.273 259.931C132.674 281.115 140.447 301.919 146.62 323.18C152.64 343.831 156.602 364.863 156.145 386.581C155.917 397.326 148.753 404.032 143.114 411.271C124.749 434.971 109.432 460.423 96.8587 487.551C88.6287 505.383 80.7035 523.291 68.9681 539.294C62.186 548.59 64.0149 560.097 65.3866 570.385C67.9013 589.359 65.8438 607.877 62.9481 626.471C62.0336 632.262 61.7288 638.13 61.3478 643.997C60.3571 663.048 60.1285 682.099 58.2234 700.998C57.3852 709.152 52.9654 716.924 50.7555 725.002C48.2408 734.146 46.4881 743.443 44.2782 752.664C41.1538 765.542 38.0294 778.497 34.7527 791.375C32.6952 799.682 23.4745 807.15 14.8635 807.835C4.27121 808.674 -0.148621 812.103 0.00378418 821.324C16.4638 820.562 33 820.409 49.3076 818.656C57.2328 817.818 62.7957 812.027 65.0056 803.644C67.3679 794.652 72.4735 787.26 80.7797 781.393C87.4094 795.033 83.7517 809.207 84.7423 822.924C87.0284 822.924 89.3145 822.924 91.6006 822.924C90.8386 804.102 93.4295 786.041 101.736 768.819C103.717 764.78 103.184 758.608 101.66 754.112C99.6783 748.092 95.6395 742.681 92.8199 737.652C94.725 734.68 96.6301 731.86 98.5352 728.965C95.1823 727.364 91.7531 725.84 87.7143 723.935C87.7143 723.783 87.4857 722.64 87.7905 721.573C92.2103 706.637 96.6301 691.777 101.202 676.917C105.013 664.496 110.88 652.304 112.48 639.654C114.614 621.975 113.166 603.914 114.081 586.083C114.386 579.224 115.224 571.375 118.805 565.965C128.788 550.953 138.999 535.712 151.573 523.062C169.481 504.926 185.788 485.875 198.362 463.623C205.449 451.05 216.575 442.21 227.243 432.532C228.234 434.132 228.92 434.818 229.225 435.657C234.635 451.202 240.122 466.748 245.38 482.369C247.285 488.085 248.809 494.029 250.028 499.972C253.838 518.719 256.124 537.922 261.535 556.135C267.784 577.014 271.822 598.123 274.185 619.612C276.09 636.834 279.367 653.675 284.091 670.44C288.892 687.434 292.855 704.96 294.379 722.564C295.522 735.442 292.093 748.701 290.721 761.808C290.264 765.847 289.654 769.81 289.425 773.849C288.816 784.974 288.892 796.1 287.825 807.15C287.139 813.779 288.282 818.961 293.54 823C298.646 823 304.133 823 309.619 823ZM184.95 45.5698C182.664 48.5418 180.683 50.9041 179.006 53.3426C177.101 56.0859 175.653 59.1341 173.52 61.6488C167.042 69.2692 165.518 72.4697 176.568 80.9283C185.255 87.5581 191.351 94.7212 189.065 106.533C188.379 110.038 189.599 114.001 188.837 117.43C187.846 121.85 185.865 129.47 184.112 129.546C178.778 129.699 171.919 128.403 168.109 124.974C157.669 115.525 148.372 104.78 138.847 94.4164C137.094 92.5113 136.027 89.9204 134.961 87.4819C133.208 83.5955 132.141 79.4043 130.084 75.6703C125.588 67.5927 120.558 59.7437 116.062 51.6661C113.395 46.9415 114.462 42.9789 119.796 40.5404C124.292 38.4829 128.559 35.5871 133.208 34.2155C150.125 29.4146 167.119 24.5376 184.341 20.8036C193.637 18.8223 202.553 21.9467 210.021 28.1954C206.592 35.0537 206.059 35.3585 199.734 35.5871C196.152 35.7395 192.418 35.5109 188.913 36.3492C180.683 38.5591 180.607 39.0163 184.95 45.5698ZM280.891 312.892C259.249 293.689 255.362 295.442 247.361 278.448C242.027 267.018 248.885 247.357 261.078 242.175C267.631 265.722 274.261 289.193 280.891 312.892ZM309.086 100.665C307.029 94.8736 304.742 89.768 303.523 84.4337C302.075 78.2612 301.618 71.9363 300.475 63.8587C305.581 68.1261 308.781 71.0219 312.134 73.6128C320.364 80.0139 321.279 85.8054 314.954 94.1116C312.972 96.7025 310.534 99.0648 309.086 100.665Z' fill='black'%3E%3C/path%3E%3C/svg%3E");
+    background-color: #ffb79696;
+    background-size: 80%;
+    background-repeat: no-repeat;
 }
 
 section.girls_grid .grid .grid-item h3 {
@@ -735,6 +804,69 @@ section.girls_grid .grid .grid-item .girl_data a:hover {
     color: white;
 }
 
+@media (max-width: 1480px) {
+    section.girls_grid .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    section.girls_grid .grid .grid-item {
+        height: 30vw;
+    }
+
+    section.girls_grid .grid .grid-item h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section.girls_grid h2 {
+        font-size: 1.5rem;
+        line-height: unset;
+        margin: 30px 0;
+    }
+
+    section.girls_grid {
+        padding: 0 25px;
+    }
+
+    section.girls_grid .grid .grid-item {
+        height: 40vw;
+    }
+
+    section.girls_grid .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    section.girls_grid .grid .grid-item h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section.girls_grid h2 {
+        font-size: 1.2rem;
+    }
+
+    section.girls_grid .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section.girls_grid .grid .grid-item {
+        height: 60vw;
+    }
+
+    section.girls_grid .grid .grid-item h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+    section.girls_grid h2 {
+        font-size: 1rem;
+    }
+}
+
 section.girls_grid .show_all {
     display: inline-block;
     margin: 80px auto;
@@ -751,6 +883,71 @@ section.girls_grid .show_all {
 section.girls_grid .show_all:hover {
     background-color: white;
     color: var(--main_color);
+}
+
+section.girls_grid .pagination {
+    padding: unset;
+    margin-top: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+section.girls_grid .pagination .page-item .page-link {
+    text-decoration: none;
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: var(--main_color);
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+section.girls_grid .pagination .page-item:first-child .page-link {
+    border-radius: 5px 0 0 5px;
+}
+
+section.girls_grid .pagination .page-item:last-child .page-link {
+    border-radius: 0 5px 5px 0;
+}
+
+section.girls_grid .pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+section.girls_grid .pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--main_color);
+    border-color: white;
+}
+
+@media(max-width: 768px){
+    section.girls_grid .pagination li:nth-child(9),
+    section.girls_grid .pagination li:nth-child(10),
+    section.girls_grid .pagination li:nth-child(11){
+        display: none;
+    }
+}
+
+@media(max-width: 480px){
+    section.girls_grid .pagination li:nth-child(8),
+    section.girls_grid .pagination li:nth-child(7){
+        display: none;
+    }
+}
+
+@media(max-width: 380px){
+    section.girls_grid .pagination li:nth-child(6),
+    section.girls_grid .pagination li:nth-child(13){
+        display: none;
+    }
 }
 
 
@@ -839,4 +1036,265 @@ section.about_service .right .content .item h3 {
 
 section.about_service .right .content .item p {
     margin: 20px 0;
+}
+
+
+/* PERSONAL PAGES SECTIONS */
+section.personal_breadcrumbs {
+    margin-top: 100px;
+}
+
+section.personal_breadcrumbs ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: unset;
+    display: flex;
+}
+
+section.personal_breadcrumbs ul li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 15px;
+}
+
+section.personal_breadcrumbs ul li:after {
+    position: absolute;
+    right: -10px;
+    content: '>';
+    color: var(--main_color);
+    font-size: .6rem;
+}
+
+section.personal_breadcrumbs ul li:last-child {
+    margin-right: unset;
+}
+
+section.personal_breadcrumbs ul li:last-child:after {
+    display: none;
+}
+
+section.personal_breadcrumbs ul li a {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: var(--main_color);
+    font-size: .8rem;
+}
+
+section.personal_breadcrumbs ul li a.active {
+    color: white;
+}
+
+
+/* section profile_edit */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+section.profile_edit {
+    height: calc(100vh - 140px);
+}
+
+section.profile_edit form {
+    max-width: 500px;
+    padding: 40px;
+    background: white;
+    box-shadow: 0px 0px 53px rgb(0 0 0 / 77%);
+    border-radius: 7px;
+}
+
+section.profile_edit #mediaFile {
+    position: absolute;
+    top: -1000px;
+}
+
+section.profile_edit #profile {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: -80px;
+    margin-bottom: -80px;
+    cursor: pointer;
+    background: #f4f4f4;
+    display: table;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.35);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 64 64' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cg xmlns='http://www.w3.org/2000/svg' id='User'%3E%3Ccircle cx='32' cy='32' fill='%23ffe0cd' r='31' data-original='%23e6ecff' class=''%3E%3C/circle%3E%3Cg fill='%234294ff'%3E%3Cpath d='m56.877 50.4748a31.0647 31.0647 0 0 0 -49.7651-.0156 30.9669 30.9669 0 0 0 49.7651.0156z' fill='%23ffb699' data-original='%234294ff' class=''%3E%3C/path%3E%3Ccircle cx='32' cy='22' r='12' fill='%23ffb699' data-original='%234294ff' class=''%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+section.profile_edit #profile label {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 30px;
+    color: #a1a1a1;
+    opacity: 1;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+section.profile_edit #profile.hasImage label {
+    opacity: 0;
+    color: white;
+}
+
+section.profile_edit #profile.hasImage:hover label {
+    opacity: 1;
+}
+
+section.profile_edit .block_fio {
+    display: flex;
+    margin: 20px 0;
+}
+
+section.profile_edit .block_fio input {
+    border: unset;
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    flex-basis: 50%;
+    max-width: 50%;
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+}
+
+section.profile_edit .block_fio input.error {
+    border-color: red !important;
+}
+
+section.profile_edit .block_fio input::placeholder {
+    color: #ebebeb;
+}
+
+section.profile_edit .block_fio input:first-child {
+    text-align: right;
+}
+
+section.profile_edit .block_fio input:focus,
+section.profile_edit .block_fio input:focus-visible,
+section.profile_edit .block_fio input:active {
+    border-color: #ebebeb;
+    outline: unset;
+}
+
+section.profile_edit .block_contacts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+section.profile_edit .block_contacts .input_row {
+    position: relative;
+    flex-basis: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+}
+
+section.profile_edit .block_contacts .input_row input {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    padding: 5px;
+    border: unset;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.2rem;
+    max-width: 100%;
+}
+
+section.profile_edit .block_contacts .input_row input:focus,
+section.profile_edit .block_contacts .input_row input:focus-visible,
+section.profile_edit .block_contacts .input_row input:active {
+    outline: unset;
+    border-color: black;
+}
+
+section.profile_edit .block_errors {
+    font-size: .8rem;
+    color: red;
+}
+
+section.profile_edit .block_errors li {
+    line-height: 1.2rem;
+}
+
+section.profile_edit .block_errors li span {
+    width: 60px;
+    display: inline-block;
+}
+
+section.profile_edit .block_stat {
+    display: flex;
+}
+
+
+section.profile_edit h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+section.profile_edit .stat {
+    width: 50%;
+    text-align: center;
+    float: left;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+section.profile_edit .stat .label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+section.profile_edit .stat .num {
+    font-family: 'Inter', sans-serif;
+    padding: 3px 0;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+section.profile_edit .editable {
+    position: relative;
+}
+
+section.profile_edit .editable i {
+    position: absolute;
+    top: 10px;
+    right: -20px;
+    opacity: 0.3;
+}
+
+section.profile_edit .profile-footer {
+    text-align: center;
+}
+
+section.profile_edit .profile-footer button {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--main_color);
+    outline: unset;
+    font-weight: 500;
+    font-size: 13px;
+    color: white;
+    background-color: var(--main_color);
+    transition: .3s ease-in-out;
+    padding: 14px 52px;
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+section.profile_edit .profile-footer button:hover {
+    background-color: white;
+    color: var(--main_color);
 }

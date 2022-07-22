@@ -259,7 +259,7 @@
                                                placeholder="10000"
                                                value="{{ $girl->price }}"
                                         >
-                                        @error('rice')
+                                        @error('price')
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>

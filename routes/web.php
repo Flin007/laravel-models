@@ -72,9 +72,9 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     //Список девушек, просмотр страниц, добавление в избранное, покупка контактов
     Route::group(['namespace' => 'Discover', 'prefix' => 'discover'], function () {
         Route::get('/', 'IndexController')->name('personal.discover.index');
+        Route::get('/{girl}', 'ShowController')->name('personal.discover.show');
         /*Route::get('/create', 'CreateController')->name('personal.discover.create');
         Route::post('/', 'StoreController')->name('personal.discover.store');
-        Route::get('/{girl}', 'ShowController')->name('personal.discover.show');
         Route::get('/{girl}/edit', 'EditController')->name('personal.discover.edit');
         Route::patch('/{girl}', 'UpdateController')->name('personal.discover.update');
         Route::delete('/{girl}', 'DeleteController')->name('personal.discover.delete');*/
